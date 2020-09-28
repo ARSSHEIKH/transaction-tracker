@@ -1,66 +1,30 @@
-import React, { useContext, useState } from 'react';
-import { TransactionContext, addTransaction } from './transContext'
-let ind = 0;
-let duplicate_checker = true;
+import React, { useContext , useState} from 'react';
+import {TransactionContext, addTransaction} from './transContext'
+
 function Child() {
-    let { transactions, addTransaction } = useContext(TransactionContext);
+    let {transactions, addTransaction} = useContext(TransactionContext);
     let [newDesc, setDesc] = useState("");
     let [newAmount, setAmount] = useState(0);
 
 
-
-
     const handleAddition = (event) => {
-
         event.preventDefault();
-
-
-        // for (ind = 0; ind < transactions.length; ind++) {
-        //     if (transactions[ind].desc === newDesc) {
-        //         transactions[ind].amount += Number(newAmount)
-
-        //         console.log(transactions[ind].amount);
-        //         duplicate_checker = false
-
-
-
-        //     }
-
-        //     return transactions[ind].amount;
-        // }
-        if (duplicate_checker == true)
-            addTransaction({
-                amount: Number(newAmount),
-                desc: newDesc
-            })
-
-    }
-    const getIncome = () => {
-        let income = 0;
-        for (let i = 0; i < transactions.length; i++) {
-            if (transactions[i].amount > 0) {
-                income += transactions[i].amount;
-            }
-        }
-        return income
-    }
-    const getExpence = () => {
-        let expence = 0;
-        for (let i = 0; i < transactions.length; i++) {
-            if (transactions[i].amount < 0) {
-                expence += transactions[i].amount;
-            }
-        }
-        return expence;
-    }
+        console.log(newDesc," ",  newAmount);
+        addTransaction({
+            
+            amount : newAmount,
+            desc : newDesc
+        })
+        
+    }     
     return (
         <div className="main-container">
             <h1 className="main-header-text">Expence Tracker</h1>
-            <h3>Your Balance <br />${getIncome() + getExpence()}</h3>
+            <h3>Your Balance <br />$260.00</h3>
 
             <div className="expence-container">
-                <h3>INCOME <br />${getIncome()}</h3>
-                <h3>EXPENCE <br />${getExpence()}</h3>
+                <h3>INCOME <br />$500.00</h3>
+                <h3>EXPENCE <br />$240.00</h3>
             </div>
 
             <div className="history-container">
@@ -70,20 +34,11 @@ function Child() {
                     {transactions.map((transObj, ind) => {
                         return (
                             <li key={ind}>
-
                                 <span>{transObj.desc} </span>
                                 <span>{transObj.amount}</span>
+                                {console.log(transObj.desc," ",  transObj.amount)}
                             </li>
                         );
-                        // if (duplicate_checker === false) {
-                        //     console.log(transactions[ind].desc)
-                        //     return(
-                        //         <li key={ind}>
-                        //             <span>{transactions[ind].desc} </span>
-                        //             <span>{transactions[ind].amount}</span>
-                        //         </li>
-                        //     )
-                        // }
                     })}
                 </ul>
             </div>
@@ -92,17 +47,17 @@ function Child() {
                 <h3>Add New Transaction</h3>
                 <hr />
                 <form onSubmit={handleAddition}>
-                    <label>
-                        Enter Description:
-                <input type="text" value={newDesc} placeholder="Enter Description ..." onChange={(ev) => setDesc(ev.target.value)} required />
-                    </label>
-                    <br />
-                    <label>
-                        Enter Amount:
-                <input type="number" value={newAmount} placeholder="Enter Amount like (e.g: 1234...)" onChange={(ev) => setAmount(ev.target.value)} required />
-                    </label>
-                    <br />
-                    <input type="submit" value="Add Transaction" />
+                <label>
+                    Enter Description:
+                <input type="text" placeholder="Enter Description ..." onChange={(ev) => setDesc(ev.target.value)} required />
+                </label>
+                <br />
+                <label>
+                    Enter Amount:
+                <input type="number" placeholder="Enter Amount like (e.g: 1234...)" onChange={(ev) => setAmount(ev.target.value)} required />
+                </label>
+                <br />
+                <input type="submit" value="Add Transaction" />
                 </form>
             </div>
 

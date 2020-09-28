@@ -25,9 +25,8 @@
   justify-content: space-between;
   box-shadow: 0 0 5px gray;
   background-color: #fff;
-  padding: 10px 15px;
+  padding: 10px 5px;
   margin: 5px;
-  border-radius: 4px;
 }
 .transaction-form input{
   width: 100%;
