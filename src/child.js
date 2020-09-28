@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import {TransactionContext} from './transContext'
 
 function Child() {
-    let transactions = useContext(TransactionContext);
+    let {transactions} = useContext(TransactionContext);
+    
     return (
         <div className="main-container">
             <h1 className="main-header-text">Expence Tracker</h1>
@@ -19,7 +20,7 @@ function Child() {
                 <ul className="history-list">
                     {transactions.map((transObj, ind) => {
                         return (
-                            <li>
+                            <li key={ind}>
                                 <span>{transObj.desc} </span>
                                 <span>{transObj.amount}</span>
                             </li>
