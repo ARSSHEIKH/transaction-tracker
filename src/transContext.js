@@ -9,16 +9,4 @@ const intitialTransactions = [
 
 export const TransactionContext = createContext(intitialTransactions);
 
-export const TransactionProvider = () => {
-    let [state, dispatch] = useReducer(TransactionReducer, intitialTransactions);
 
-    function addTransaction(transObj){
-        dispatch({
-            type : "ADD_TRANSACTION",
-            payload: {
-                amount: transObj.createContext,
-                desc: transObj.desc
-            }
-        })
-    }
-}
