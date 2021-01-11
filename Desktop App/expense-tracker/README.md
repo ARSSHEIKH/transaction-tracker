@@ -1,6 +1,6 @@
 ### To Download Application for Windows :
 click this link 
-# [Download](https://github.com/ARSSHEIKH/transaction-tracker/raw/master/Desktop%20App/expense-tracker/To%20Download/release-builds/expense-tracker-win32-ia32.rar)
+# [Download](https://drive.google.com/file/d/1dv-GJDZLjfy4xcPaCBpHiTFl7DCsukTO/view?usp=sharing)
 
 #### After Download 
 ### Step # 01:
