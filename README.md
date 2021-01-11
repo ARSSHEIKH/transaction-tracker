@@ -1,10 +1,12 @@
 # Transaction Tracker App
 ###  url: http://transactiontracker.surge.sh/
 
-### To Download Transaction Tracker Desktop App for Windows :
-visit this link :
+### To Download Transaction Tracker Desktop App:
+## For Windows:
 # [Download](https://drive.google.com/file/d/1dv-GJDZLjfy4xcPaCBpHiTFl7DCsukTO/view?usp=sharing)
 
+## For Linux:
+# [Download](https://drive.google.com/file/d/1vwYbDozYFumzH9u9W86q1YDmwqa75GlR/view?usp=sharing)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
