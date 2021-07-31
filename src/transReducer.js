@@ -6,6 +6,9 @@ const TransactionReducer = ((state, action) => {
         case "UPDATE_TRANSACTION": {
             return 
         }
+        case "DELETE_TRANSACTION": {
+            return 
+        }
         default:
             return state
     }

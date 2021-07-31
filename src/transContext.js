@@ -2,15 +2,15 @@ import React, { createContext, useReducer } from 'react'
 import TransactionReducer from './transReducer'
 
 const intitialTransactions = [
-   
+
 ]
 
 export const TransactionContext = createContext(intitialTransactions);
 
 export const TransactionProvider = ({ children }) => {
     let [state, dispatch] = useReducer(TransactionReducer, intitialTransactions);
-    
-      function addTransaction(transObj) {
+
+    function addTransaction(transObj) {
         let ind = 0;
 
         // try {
@@ -30,7 +30,7 @@ export const TransactionProvider = ({ children }) => {
         //         }
         //         return
         //     }
-            
+
         // }
         // catch {
         //     console.log("state[ind+1]")
@@ -47,7 +47,8 @@ export const TransactionProvider = ({ children }) => {
     return (
         <TransactionContext.Provider value={{
             transactions: state,
-            addTransaction
+            addTransaction,
+            
         }}>
             {children}
         </TransactionContext.Provider>

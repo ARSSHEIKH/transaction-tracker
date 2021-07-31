@@ -1,28 +1,21 @@
 import React, { useContext, useState } from 'react';
-import { TransactionContext, addTransaction } from './transContext'
-let ind = 0;
+import { TransactionContext } from './transContext'
 let duplicate_checker = true;
 function Child() {
     let { transactions, addTransaction } = useContext(TransactionContext);
     let [newDesc, setDesc] = useState("");
     let [newAmount, setAmount] = useState(0);
-
-
-
+    let [tempArr, settempArr] = useState([]);
 
     const handleAddition = (event) => {
 
         event.preventDefault();
-
-
         // for (ind = 0; ind < transactions.length; ind++) {
         //     if (transactions[ind].desc === newDesc) {
         //         transactions[ind].amount += Number(newAmount)
 
         //         console.log(transactions[ind].amount);
         //         duplicate_checker = false
-
-
 
         //     }
 
@@ -33,7 +26,6 @@ function Child() {
                 amount: Number(newAmount),
                 desc: newDesc
             })
-
     }
     const getIncome = () => {
         let income = 0;
@@ -53,6 +45,20 @@ function Child() {
         }
         return expence;
     }
+    const delete_anList = (key) => {
+    //     tempArr[key] = null
+    //    for(let i=0; i<tempArr.length; i++) {
+    //         console.log(i)
+    //         let arr = []
+    //         if (tempArr[i] !== null) {
+    //             arr.push(tempArr[i])
+    //         }
+    //         settempArr(arr)
+    //         console.log(arr)
+    //     }
+    //     console.log(tempArr)
+
+    }
     return (
         <div className="main-container">
             <h1 className="main-header-text">Expence Tracker</h1>
@@ -69,11 +75,15 @@ function Child() {
                 <ul className="history-list">
                     {transactions.map((transObj, ind) => {
                         return (
-                            <li key={ind}>
-
-                                <span>{transObj.desc} </span>
-                                <span>{transObj.amount}</span>
-                            </li>
+                            <div className="dvLists" key={ind}>
+                                <div className="dvdvLists">
+                                    <li>
+                                        <span>{transObj.desc} </span>
+                                        <span>{transObj.amount}</span>
+                                    </li>
+                                </div>
+                                {/* <button className="btnDelete" key={ind} onClick={() => delete_anList(ind)}>x</button> */}
+                            </div>
                         );
                         // if (duplicate_checker === false) {
                         //     console.log(transactions[ind].desc)
@@ -94,12 +104,14 @@ function Child() {
                 <form onSubmit={handleAddition}>
                     <label>
                         Enter Description:
-                <input type="text" value={newDesc} placeholder="Enter Description ..." onChange={(ev) => setDesc(ev.target.value)} required />
+                        <input type="text" value={newDesc} placeholder="Enter Description ..." onChange={(ev) => setDesc(ev.target.value)} required />
                     </label>
                     <br />
                     <label>
                         Enter Amount:
-                <input type="number" value={newAmount} placeholder="Enter Amount like (e.g: 1234...)" onChange={(ev) => setAmount(ev.target.value)} required />
+                        <input type="number" value={newAmount} placeholder="Enter Amount like (e.g: 1234...)" onChange={(ev) => {
+                            setAmount(ev.target.value);
+                            }} required />
                     </label>
                     <br />
                     <input type="submit" value="Add Transaction" />
